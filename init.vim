@@ -10,7 +10,8 @@ let mapleader=" "
 map <C-b> :NERDTreeToggle<CR>
 "Toggle nerd commenter
 "<Leader>c<Space>
-
+"Activate vim which key
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 "------------Vim Plug Plugins--------------------------------------
 call plug#begin(stdpath('data') . '/plugged')
@@ -32,6 +33,8 @@ Plug 'vim-airline/vim-airline-themes'
 "Coc.nvim for code completion
 "Installed Extensions for coc: coc-java
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Vim which key for showing key bindings
+Plug 'liuchengxu/vim-which-key'
 call plug#end()
 
 
@@ -221,10 +224,13 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+"-----------vim which key settings--------------------------------
+set timeoutlen=500
 "-----------Enable mouse------------------------------------------
 set mouse=a
-
-"-----------Color schemes and so on--------------------------------
+"-----------Set clipboard-----------------------------------------
+set clipboard+=unnamedplus
+"-----------Color schemes and so on-------------------------------
 set termguicolors
 colorscheme gruvbox
 
