@@ -26,6 +26,8 @@ Plug 'flazz/vim-colorschemes'
 Plug 'preservim/nerdtree'
 "Vim devicons for the images besides the folders/files
 Plug 'ryanoasis/vim-devicons'
+"Git integration with Nerdtree
+Plug 'Xuyuanp/nerdtree-git-plugin'
 "CtrlP fuzzy finder like VS-Code
 Plug 'kien/ctrlp.vim'
 "Nerdcommenter
@@ -44,6 +46,8 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
 "Repeat vim extends . function
 Plug 'tpope/vim-repeat'
+"Git plugin to enable :G command
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
@@ -246,4 +250,3 @@ set clipboard+=unnamedplus
 "-----------Color schemes and so on-------------------------------
 set termguicolors
 colorscheme gruvbox
-
