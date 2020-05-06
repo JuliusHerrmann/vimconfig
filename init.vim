@@ -38,7 +38,7 @@ Plug 'vim-airline/vim-airline-themes'
 "syntastic for syntax checking
 "Plug 'vim-syntastic/syntastic'
 "Coc.nvim for code completion
-"Installed Extensions for coc: coc-java
+"Installed Extensions for coc: coc-java coc-css coc-html coc-tsserver coc-snippets
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Vim which key for showing key bindings
 Plug 'liuchengxu/vim-which-key'
@@ -50,6 +50,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 "Vim surround
 Plug 'tpope/vim-surround'
+"Vim autoclose html tags
+Plug 'alvan/vim-closetag'
 call plug#end()
 
 
@@ -124,9 +126,13 @@ set signcolumn=yes
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
+      \ pumvisible() ? "\<C-n>":
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+let g:coc_snippet_next = '<tab>'
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -245,6 +251,8 @@ set timeoutlen=500
 let g:sneak#label = 1
 let g:sneak#s_next = 1
 let g:sneak#prompt = '🔎 '
+"-----------vim autoclose filetypes-------------------------------
+let g:closetag_filetypes = 'html,xhtml,phtml'
 "-----------Enable mouse------------------------------------------
 set mouse=a
 "-----------Set clipboard-----------------------------------------
