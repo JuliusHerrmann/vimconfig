@@ -48,6 +48,8 @@ Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-repeat'
 "Git plugin to enable :G command
 Plug 'tpope/vim-fugitive'
+"Vim surround
+Plug 'tpope/vim-surround'
 call plug#end()
 
 
