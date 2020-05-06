@@ -12,6 +12,11 @@ map <C-b> :NERDTreeToggle<CR>
 "<Leader>c<Space>
 "Activate vim which key
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+"Move between windows with ctrl + vim keys
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
 
 "------------Vim Plug Plugins--------------------------------------
 call plug#begin(stdpath('data') . '/plugged')
