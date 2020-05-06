@@ -35,6 +35,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Vim which key for showing key bindings
 Plug 'liuchengxu/vim-which-key'
+"Vim sneak for easy vim motion
+Plug 'justinmk/vim-sneak'
+"Repeat vim extends . function
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 
@@ -224,8 +228,12 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-"-----------vim which key settings--------------------------------
+"-----------Vim which key settings--------------------------------
 set timeoutlen=500
+"-----------Vim sneak settings------------------------------------
+let g:sneak#label = 1
+let g:sneak#s_next = 1
+let g:sneak#prompt = '🔎 '
 "-----------Enable mouse------------------------------------------
 set mouse=a
 "-----------Set clipboard-----------------------------------------
