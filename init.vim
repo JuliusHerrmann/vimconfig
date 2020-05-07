@@ -17,6 +17,14 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
+"Use alt + vim keys to resize window
+nnoremap <M-j> :resize -2<CR>
+nnoremap <M-k> :resize +2<CR>
+nnoremap <M-h> :vertical resize -2<CR>
+nnoremap <M-l> :vertical resize +2<CR>
+"Better block tabbing
+vnoremap < <gv
+vnoremap > >gv
 
 "------------Vim Plug Plugins--------------------------------------
 call plug#begin(stdpath('data') . '/plugged')
@@ -54,23 +62,6 @@ Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 call plug#end()
 
-
-"------------Auto toggle relative and absolute numbers-------------
-set number relativenumber
-
-augroup numbertoggle
-	autocmd!
-	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-"------------Auto close brackets----------------------------------
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
 
 "-----------------------------------------------------------------
 "  ___      _   _   _              
@@ -257,6 +248,30 @@ let g:closetag_filetypes = 'html,xhtml,phtml'
 set mouse=a
 "-----------Set clipboard-----------------------------------------
 set clipboard+=unnamedplus
+"------------Auto toggle relative and absolute numbers-------------
+set number relativenumber
+
+augroup numbertoggle
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+"------------Auto close brackets----------------------------------
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+"-----------Disable comment continuation on new line--------------
+set formatoptions-=cro
+"-----------General vim settings----------------------------------
+syntax enable
+set smarttab
+set smartindent
+set hidden
+set showtabline=1
 "-----------Color schemes and so on-------------------------------
 set termguicolors
 colorscheme gruvbox
