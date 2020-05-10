@@ -52,6 +52,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'liuchengxu/vim-which-key'
 "Vim sneak for easy vim motion
 Plug 'justinmk/vim-sneak'
+"Vim Quickscope for better t and f bindings
+Plug 'unblevable/quick-scope'   
 "Repeat vim extends . function
 Plug 'tpope/vim-repeat'
 "Git plugin to enable :G command
@@ -76,6 +78,7 @@ set shiftwidth=4
 "-----------Nerdtree settings-------------------------------------
 "Auto close vim if only Nerdtree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowLineNumbers = 0
 "-----------Nerdcommenter settings--------------------------------
 let g:NERDCommentEmptyLines = 1
 "-----------Vim devicons settings---------------------------------
@@ -242,7 +245,20 @@ set timeoutlen=500
 let g:sneak#label = 1
 let g:sneak#s_next = 1
 let g:sneak#prompt = '🔎 '
-"-----------vim autoclose filetypes-------------------------------
+"-----------Vim Quickscope options--------------------------------
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" Trigger a highlight only when pressing f and F.
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" Set max lines
+let g:qs_max_chars=200
+" Change highlight colors
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#a3daff' gui=underline ctermfg=155 cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#ff80c0' gui=underline ctermfg=81 cterm=underline
+augroup END
+"-----------Vim autoclose filetypes-------------------------------
 let g:closetag_filetypes = 'html,xhtml,phtml'
 "-----------Enable mouse------------------------------------------
 set mouse=a
