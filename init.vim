@@ -26,10 +26,14 @@ nnoremap <M-l> :vertical resize +2<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+"Invoke syntax checking on gdscript files on save
+autocmd BufWritePost *gd !godot_server --script % --check-only
+
 "------------Vim Plug Plugins--------------------------------------
 call plug#begin(stdpath('data') . '/plugged')
 "Color Shemes
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
+Plug 'morhetz/gruvbox'
 "Nerdtree file explorer
 Plug 'preservim/nerdtree'
 "Vim devicons for the images besides the folders/files
@@ -46,8 +50,10 @@ Plug 'vim-airline/vim-airline-themes'
 "syntastic for syntax checking
 "Plug 'vim-syntastic/syntastic'
 "Coc.nvim for code completion
-"Installed Extensions for coc: coc-java coc-css coc-html coc-tsserver coc-snippets
+"Installed Extensions for coc: coc-java coc-css coc-html coc-tsserver coc-snippets coc-python
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Show function parameters
+Plug 'shougo/echodoc.vim'
 "Vim which key for showing key bindings
 Plug 'liuchengxu/vim-which-key'
 "Vim sneak for easy vim motion
@@ -62,6 +68,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 "Vim autoclose html tags
 Plug 'alvan/vim-closetag'
+"Godot support
+Plug 'clktmr/vim-gdscript3'
+"Zeal integration
+Plug 'KabbAmine/zeavim.vim'
 call plug#end()
 
 
@@ -258,6 +268,18 @@ augroup qs_colors
   autocmd ColorScheme * highlight QuickScopePrimary guifg='#a3daff' gui=underline ctermfg=155 cterm=underline
   autocmd ColorScheme * highlight QuickScopeSecondary guifg='#ff80c0' gui=underline ctermfg=81 cterm=underline
 augroup END
+"-----------Echodoc.vim-------------------------------------------
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
+" To use a custom highlight for the float window,
+" change Pmenu to your highlight group
+highlight link EchoDocFloat Pmenu
+"-----------Zealvim-----------------------------------------------
+nmap <leader>z <Plug>Zeavim
+vmap <leader>z <Plug>ZVVisSelection
+nmap gz <Plug>ZVOperator
+nmap <leader><leader>z <Plug>ZVKeyDocset
+let g:zv_keep_focus = 0
 "-----------Vim autoclose filetypes-------------------------------
 let g:closetag_filetypes = 'html,xhtml,phtml'
 "-----------Enable mouse------------------------------------------
@@ -288,6 +310,7 @@ set smarttab
 set smartindent
 set hidden
 set showtabline=1
+set noshowmode
 "-----------Color schemes and so on-------------------------------
 set termguicolors
 colorscheme gruvbox
