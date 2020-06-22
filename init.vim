@@ -50,7 +50,7 @@ Plug 'vim-airline/vim-airline-themes'
 "syntastic for syntax checking
 "Plug 'vim-syntastic/syntastic'
 "Coc.nvim for code completion
-"Installed Extensions for coc: coc-java coc-css coc-html coc-tsserver coc-snippets coc-python coc-marketplace coc-vimtex
+"Installed Extensions for coc: coc-java coc-css coc-html coc-tsserver coc-snippets coc-python coc-marketplace coc-vimtex coc-flutter
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Show function parameters
 Plug 'shougo/echodoc.vim'
@@ -74,6 +74,8 @@ Plug 'clktmr/vim-gdscript3'
 Plug 'lervag/vimtex'
 "Zeal integration
 Plug 'KabbAmine/zeavim.vim'
+"Dart support for flutter
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 
