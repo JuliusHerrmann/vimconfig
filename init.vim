@@ -86,9 +86,9 @@ call plug#end()
 " |___/\___|\__|\__|_|_||_\__, /__/
 "                         |___/    
 "-----------Set tabs----------------------------------------------
-set tabstop=4
-set expandtab
-set shiftwidth=4
+set tabstop=2
+"set expandtab
+set shiftwidth=2
 "-----------Nerdtree settings-------------------------------------
 "Auto close vim if only Nerdtree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -284,6 +284,8 @@ vmap <leader>z <Plug>ZVVisSelection
 nmap gz <Plug>ZVOperator
 nmap <leader><leader>z <Plug>ZVKeyDocset
 let g:zv_keep_focus = 0
+"-----------Vimtex settings---------------------------------------
+let g:vimtex_latexmk_progname= '/usr/bin/nvr'
 "-----------Vim autoclose filetypes-------------------------------
 let g:closetag_filetypes = 'html,xhtml,phtml'
 "-----------Enable mouse------------------------------------------
