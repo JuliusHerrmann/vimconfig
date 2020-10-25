@@ -2,7 +2,6 @@
 " \ \ / /_ _|  \/  |  / __/ _ \| \| | __|_ _/ __|
 "  \ V / | || |\/| | | (_| (_) | .` | _| | | (_ |
 "   \_/ |___|_|  |_|  \___\___/|_|\_|_| |___\___|
-
 "------------Key bindings------------------------------------------
 "Change the <Leader> key to space
 let mapleader=" "
@@ -286,6 +285,7 @@ nmap <leader><leader>z <Plug>ZVKeyDocset
 let g:zv_keep_focus = 0
 "-----------Vimtex settings---------------------------------------
 let g:vimtex_latexmk_progname= '/usr/bin/nvr'
+let g:vimtex_view_general_viewer = 'zathura'
 "-----------Vim autoclose filetypes-------------------------------
 let g:closetag_filetypes = 'html,xhtml,phtml'
 "-----------Enable mouse------------------------------------------
