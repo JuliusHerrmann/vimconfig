@@ -28,6 +28,8 @@ vnoremap > >gv
 
 "Invoke syntax checking on gdscript files on save
 autocmd BufWritePost *gd !godot_server --script % --check-only
+"Clear search highlight by double tapping escape @Oli
+nnoremap <esc><esc> :noh<return><esc>
 
 "------------Vim Plug Plugins--------------------------------------
 call plug#begin(stdpath('data') . '/plugged')
@@ -286,6 +288,7 @@ nmap <leader><leader>z <Plug>ZVKeyDocset
 let g:zv_keep_focus = 0
 "-----------Vimtex settings---------------------------------------
 let g:vimtex_latexmk_progname= '/usr/bin/nvr'
+let g:vimtex_view_general_viewer = 'zathura'
 "-----------Vim autoclose filetypes-------------------------------
 let g:closetag_filetypes = 'html,xhtml,phtml'
 "-----------Enable mouse------------------------------------------
