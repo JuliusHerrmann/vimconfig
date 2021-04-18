@@ -77,6 +77,8 @@ Plug 'lervag/vimtex'
 Plug 'KabbAmine/zeavim.vim'
 "Dart support for flutter
 Plug 'dart-lang/dart-vim-plugin'
+"Support for twig syntax highlighting (symfony)
+Plug 'nelsyeung/twig.vim'
 call plug#end()
 
 
@@ -289,7 +291,10 @@ let g:zv_keep_focus = 0
 let g:vimtex_latexmk_progname= '/usr/bin/nvr'
 let g:vimtex_view_general_viewer = 'zathura'
 "-----------Vim autoclose filetypes-------------------------------
-let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_filetypes = 'html,xhtml,phtml,twig'
+
+"-----------Twig snippets-------------------------------
+let g:neosnippet#snippets_directory='~/.vim/bundle/twig.vim/neosnippets'
 "-----------Enable mouse------------------------------------------
 set mouse=a
 "-----------Set clipboard-----------------------------------------
