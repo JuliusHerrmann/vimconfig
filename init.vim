@@ -51,7 +51,7 @@ Plug 'vim-airline/vim-airline-themes'
 "syntastic for syntax checking
 "Plug 'vim-syntastic/syntastic'
 "Coc.nvim for code completion
-"Installed Extensions for coc: coc-java coc-css coc-html coc-tsserver coc-snippets coc-python coc-marketplace coc-vimtex coc-flutter
+"Installed Extensions for coc: coc-java coc-css coc-html coc-tsserver coc-snippets coc-python coc-marketplace coc-vimtex coc-flutter coc-ccls
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Show function parameters
 Plug 'shougo/echodoc.vim'
