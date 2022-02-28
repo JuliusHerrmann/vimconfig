@@ -27,6 +27,8 @@ vnoremap > >gv
 
 "Invoke syntax checking on gdscript files on save
 autocmd BufWritePost *gd !godot_server --script % --check-only
+"Invoke compilation for plantuml files on save
+"autocmd BufWritePost *puml silent !plantuml % 
 "Clear search highlight by double tapping escape @Oli
 nnoremap <esc><esc> :noh<return><esc>
 
@@ -51,7 +53,7 @@ Plug 'vim-airline/vim-airline-themes'
 "syntastic for syntax checking
 "Plug 'vim-syntastic/syntastic'
 "Coc.nvim for code completion
-"Installed Extensions for coc: coc-java coc-css coc-html coc-tsserver coc-snippets coc-python coc-marketplace coc-vimtex coc-flutter coc-clangd
+"Installed Extensions for coc: coc-java coc-css coc-html coc-tsserver coc-snippets coc-pyright coc-marketplace coc-vimtex coc-flutter coc-clangd
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Show function parameters
 Plug 'shougo/echodoc.vim'
@@ -79,6 +81,12 @@ Plug 'KabbAmine/zeavim.vim'
 Plug 'dart-lang/dart-vim-plugin'
 "Support for twig syntax highlighting (symfony)
 Plug 'nelsyeung/twig.vim'
+"React jsx support
+Plug 'mxw/vim-jsx'
+"Plantuml
+Plug 'aklt/plantuml-syntax'
+"Gradle command
+Plug 'aloussase/gradle.vim'
 call plug#end()
 
 
@@ -90,7 +98,9 @@ call plug#end()
 "                         |___/    
 "-----------Set tabs----------------------------------------------
 set tabstop=2
-"set expandtab
+set softtabstop=0
+set smarttab
+set expandtab
 set shiftwidth=2
 "-----------Nerdtree settings-------------------------------------
 "Auto close vim if only Nerdtree is open
@@ -288,7 +298,7 @@ nmap gz <Plug>ZVOperator
 nmap <leader><leader>z <Plug>ZVKeyDocset
 let g:zv_keep_focus = 0
 "-----------Vimtex settings---------------------------------------
-let g:vimtex_latexmk_progname= '/usr/bin/nvr'
+"let g:vimtex_latexmk_progname= '/usr/bin/nvr'
 let g:vimtex_view_general_viewer = 'zathura'
 "-----------Vim autoclose filetypes-------------------------------
 let g:closetag_filetypes = 'html,xhtml,phtml,twig'
@@ -313,7 +323,7 @@ inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
+inoremap {<CR> <space>{<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 "-----------Disable comment continuation on new line--------------
 set formatoptions-=cro
