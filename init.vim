@@ -87,6 +87,8 @@ Plug 'mxw/vim-jsx'
 Plug 'aklt/plantuml-syntax'
 "Gradle command
 Plug 'aloussase/gradle.vim'
+"Visual Debugging
+Plug 'puremourning/vimspector'
 call plug#end()
 
 
@@ -302,14 +304,21 @@ let g:zv_keep_focus = 0
 let g:vimtex_view_general_viewer = 'zathura'
 "-----------Vim autoclose filetypes-------------------------------
 let g:closetag_filetypes = 'html,xhtml,phtml,twig'
+"-----------Vimspector--------------------------------------------
+" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
 
-"-----------Twig snippets-------------------------------
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+let g:vimspector_enable_mappings = 'HUMAN'
+"-----------Twig snippets-----------------------------------------
 let g:neosnippet#snippets_directory='~/.vim/bundle/twig.vim/neosnippets'
 "-----------Enable mouse------------------------------------------
 set mouse=a
 "-----------Set clipboard-----------------------------------------
 set clipboard+=unnamedplus
-"------------Auto toggle relative and absolute numbers-------------
+"------------Auto toggle relative and absolute numbers------------
 set number relativenumber
 
 augroup numbertoggle
