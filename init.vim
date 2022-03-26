@@ -113,7 +113,16 @@ let g:NERDCommentEmptyLines = 1
 "-----------Vim devicons settings---------------------------------
 set encoding=UTF-8
 "-----------Airline settings--------------------------------------
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
 let g:airline_theme='base16_gruvbox_dark_hard'
+let g:airline_symbols.linenr = '  '
+let g:airline_symbols.colnr = ' ℅ '
+let g:airline_symbols.colnr = '  '
+let g:airline_symbols.maxlinenr = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.branch = '🌿'
 "-----------Syntastic settings------------------------------------
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
