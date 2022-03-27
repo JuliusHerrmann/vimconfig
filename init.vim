@@ -121,7 +121,7 @@ let g:airline_symbols.linenr = '  '
 let g:airline_symbols.colnr = ' ℅ '
 let g:airline_symbols.colnr = '  '
 let g:airline_symbols.maxlinenr = ''
-"let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = ''
 "let g:airline_symbols.branch = '🌿'
 "-----------Syntastic settings------------------------------------
 "set statusline+=%#warningmsg#
@@ -355,3 +355,8 @@ set noshowmode
 "-----------Color schemes and so on-------------------------------
 set termguicolors
 colorscheme gruvbox
+
+"set comments italic
+set t_ZH=[3m
+set t_ZR=[23m
+highlight Comment cterm=italic gui=italic
