@@ -1,0 +1,5 @@
+{
+  "rust-analyzer.debug.runtime": "vimspector",
+  "rust-analyzer.debug.vimspector.configuration.name": "rust-lldb",
+	"eslint.validate": ["javascript", "javascriptreact", "vue"]
+}
