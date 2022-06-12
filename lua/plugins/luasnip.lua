@@ -1,2 +1,2 @@
 -- luasnip setup
-local luasnip = require 'luasnip'
+Luasnip = require 'luasnip'

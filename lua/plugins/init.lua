@@ -1,6 +1,11 @@
 require('packer').startup(function()
-  -- use 'morhetz/gruvbox' -- I removed this as the one below should be better
-  use 'ellisonleao/gruvbox.nvim' -- colorscheme
+  -- colorschemes
+  use 'ellisonleao/gruvbox.nvim'
+  use 'rose-pine/neovim'
+  use 'mangeshrex/everblush.vim'
+  use 'marko-cerovac/material.nvim'
+
+  -- other plugins
   use 'wbthomason/packer.nvim' -- Package manager
   use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
   use 'onsails/lspkind.nvim' -- icons for lsp
