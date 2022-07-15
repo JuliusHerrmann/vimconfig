@@ -10,20 +10,20 @@ require("plugins")
 --Set colorscheme
 vim.highlight.create('Comment', {cterm='italic', gui='italic'}, false)
 vim.opt.background = "dark"
--- vim.cmd([[colorscheme rose-pine]])
+vim.cmd([[colorscheme rose-pine]])
 -- vim.g.material_style = "darker"
 -- vim.cmd([[colorscheme material]])
-vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd([[colorscheme gruvbox]])
 
 -- default vim settings
 vim.wo.number = true
 vim.o.mouse = 'a'
 vim.o.breakindent = true
 vim.opt.undofile = true
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 vim.opt.softtabstop = 0
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 vim.opt.clipboard = "unnamedplus"
 vim.wo.relativenumber = true
 vim.opt.smartindent = true

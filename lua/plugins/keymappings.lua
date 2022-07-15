@@ -1,16 +1,16 @@
 --keymappings for vim directly
 --moving between windows
 vim.api.nvim_set_keymap(
-  "n", "<C-J>", "<C-W>j", { noremap = true }
+  "n", "<C-j>", "<C-W>j", { noremap = true }
 )
 vim.api.nvim_set_keymap(
-  "n", "<C-K>", "<C-W>k", { noremap = true }
+  "n", "<C-k>", "<C-W>k", { noremap = true }
 )
 vim.api.nvim_set_keymap(
-  "n", "<C-L>", "<C-W>l", { noremap = true }
+  "n", "<C-l>", "<C-W>l", { noremap = true }
 )
 vim.api.nvim_set_keymap(
-  "n", "<C-H>", "<C-W>h", { noremap = true }
+  "n", "<C-h>", "<C-W>h", { noremap = true }
 )
 --window resizing
 vim.api.nvim_set_keymap(

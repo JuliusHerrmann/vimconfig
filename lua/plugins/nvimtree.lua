@@ -7,4 +7,7 @@ vim.api.nvim_set_keymap(
 )
 -- nvim_tree
 require'nvim-tree'.setup {
+  renderer = {
+    full_name = true,
+  }
 }

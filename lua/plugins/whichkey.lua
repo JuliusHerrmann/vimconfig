@@ -18,7 +18,7 @@ wk.register({
     name = "telescope actions",
     o = "document symbols",
     b = "buffer fuzzy search",
-    sp = "live grep in project",
+    p = "live grep in project",
   },
   w = {
     name = "lsp workspace",

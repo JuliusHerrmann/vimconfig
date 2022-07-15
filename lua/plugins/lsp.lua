@@ -1,5 +1,5 @@
 -- Enable the following language servers
-local servers = {'pyright', 'sumneko_lua', 'texlab', 'jdtls'}
+local servers = {'pyright', 'sumneko_lua', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman'}
 local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
@@ -88,6 +88,25 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
+lspconfig.texlab.setup{
+    settings = {
+        texlab = {
+            build = {
+                onSave = true
+            },
+            forwardSearch = {
+                args = {
+                    "--synctex-forward",
+                    "%l:1:%f",
+                    "%p"
+                },
+                executable = "zathura",
+                onSave = true
+            }
+        }
+
+        }
+}
 -- show error in floating window
 -- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 -- show error in floating window only when hovering over error
