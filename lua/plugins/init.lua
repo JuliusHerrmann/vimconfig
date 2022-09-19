@@ -19,6 +19,7 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- fzf syntax for telescope
   use 'nvim-treesitter/nvim-treesitter' -- treesitter for highlighting
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use {'kyazdani42/nvim-web-devicons'}
   use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
   use 'arkav/lualine-lsp-progress' -- lsp integration with lualine
   use {'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}

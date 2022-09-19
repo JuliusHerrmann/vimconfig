@@ -1,5 +1,5 @@
 -- Enable the following language servers
-local servers = {'pyright', 'sumneko_lua', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman'}
+local servers = {'pyright', 'sumneko_lua', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman', 'asm_lsp', 'cmake'}
 local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
