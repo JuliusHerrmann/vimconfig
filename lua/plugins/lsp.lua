@@ -1,5 +1,5 @@
 -- Enable the following language servers
-local servers = {'pyright', 'sumneko_lua', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman', 'asm_lsp', 'cmake'}
+local servers = {'pyright', 'sumneko_lua', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman', 'asm_lsp', 'cmake', 'eslint', 'taplo'}
 local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
@@ -45,7 +45,7 @@ vim.diagnostic.config({
 })
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable language servers defined in servers
 for _, lsp in ipairs(servers) do
@@ -91,6 +91,7 @@ lspconfig.sumneko_lua.setup {
 lspconfig.texlab.setup{
     settings = {
         texlab = {
+            rootDirectory = ".",
             build = {
                 onSave = true
             },

@@ -15,7 +15,10 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path' -- path source for cmp
   use 'hrsh7th/cmp-buffer' -- path source for cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use 'saadparwaiz1/cmp_luasnip' use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- telescope
+  use 'saadparwaiz1/cmp_luasnip'
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- telescope
+  -- use 'hrsh7th/vim-vsnip'
+  -- use 'hrsh7th/vim-vsnip-integ'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- fzf syntax for telescope
   use 'nvim-treesitter/nvim-treesitter' -- treesitter for highlighting
   use 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -36,7 +39,8 @@ require('packer').startup(function()
   use 'AckslD/nvim-neoclip.lua' -- clipboard history
   use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}} -- tablines
   use 'folke/which-key.nvim' -- show help for keymappings
-  use 'lewis6991/gitsigns.nvim'
+  use 'lewis6991/gitsigns.nvim' -- nice git integration
+  use 'sbdchd/neoformat'
 end)
 -- this needs to be at the start
 _G.__luacache_config = {

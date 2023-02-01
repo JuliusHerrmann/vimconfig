@@ -8,7 +8,6 @@ require("plugins")
 
 
 --Set colorscheme
-vim.highlight.create('Comment', {cterm='italic', gui='italic'}, false)
 vim.opt.background = "dark"
 vim.cmd([[colorscheme rose-pine]])
 -- vim.g.material_style = "darker"
@@ -40,6 +39,9 @@ vim.wo.signcolumn = 'yes'
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+
+-- Only one status line at the bottom
+vim.opt.laststatus = 3
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

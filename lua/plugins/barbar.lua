@@ -18,8 +18,13 @@ require'bufferline'.setup {
   icon_close_tab = '',
   icon_close_tab_modified = '●',
   icon_pinned = '車',
-  diagnostics = "nvim_lsp",
-  diagnostics_indicator = function(count)
+  diagnostics = {
+        {enabled = true}, -- ERROR
+        {enabled = false}, -- WARN
+        {enabled = false}, -- INFO
+        {enabled = true},  -- HINT
+    },
+    diagnostics_indicator = function(count)
     return "("..count..")"
   end,
 }
@@ -38,13 +43,13 @@ vim.api.nvim_set_keymap("n", '<M-9>', "<Cmd>BufferGoto 9<CR>", { noremap = true 
 vim.api.nvim_set_keymap("n", '<leader>a', "<cmd>BufferPick<CR>", { noremap = true })
 
 -- nvimtree integrations
-local nvim_tree_events = require('nvim-tree.events')
-local bufferline_state = require('bufferline.state')
+-- local nvim_tree_events = require('nvim-tree.events')
+-- local bufferline_state = require('bufferline.state')
 
-nvim_tree_events.on_tree_open(function ()
-  bufferline_state.set_offset(31, "Nvim Tree")
-end)
-
-nvim_tree_events.on_tree_close(function ()
-  bufferline_state.set_offset(0)
-end)
+-- nvim_tree_events.on_tree_open(function ()
+--   bufferline_state.set_offset(31, "Nvim Tree")
+-- end)
+--
+-- nvim_tree_events.on_tree_close(function ()
+--   bufferline_state.set_offset(0)
+-- end)

@@ -15,18 +15,40 @@ end
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
 cmp.setup ({
-  window = {
-    completion = {
-      border = border "CmpBorder",
-      winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+    window = {
+        completion = {
+            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+            col_offset = -3,
+            side_padding = 0,
+            -- border = border "CmpBorder"
+        },
+        documentation = {
+            -- border = border "CmpDocBorder",
+        },
     },
-    documentation = {
-      border = border "CmpDocBorder",
+    formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. strings[1] .. " "
+            kind.menu = "    (" .. strings[2] .. ")"
+
+            return kind
+        end,
     },
-  },
-  formatting = {
-    format = lspkind.cmp_format(),
-  },
+    -- window = {
+    --   completion = {
+  --     border = border "CmpBorder",
+  --     winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+  --   },
+  --   documentation = {
+  --     border = border "CmpDocBorder",
+  --   },
+  -- },
+  -- formatting = {
+  --   format = lspkind.cmp_format(),
+  -- },
   snippet = {
     expand = function(args)
       Luasnip.lsp_expand(args.body)
@@ -43,7 +65,7 @@ cmp.setup ({
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif Luasnip.expand_or_jumpable() then
+      elseif Luasnip.expand_or_locally_jumpable() then
         Luasnip.expand_or_jump()
       else
         fallback()
