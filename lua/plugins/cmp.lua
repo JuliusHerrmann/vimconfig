@@ -13,7 +13,6 @@ local function border(hl_name)
 end
 
 local cmp = require 'cmp'
-local lspkind = require('lspkind')
 cmp.setup ({
     window = {
         completion = {
@@ -32,7 +31,12 @@ cmp.setup ({
             local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
             local strings = vim.split(kind.kind, "%s", { trimempty = true })
             kind.kind = " " .. strings[1] .. " "
-            kind.menu = "    (" .. strings[2] .. ")"
+
+            if #(strings) > 1 then
+                kind.menu = "    (" .. strings[2] .. ")"
+            else
+                kind.menu = "    (" .. "?" .. ")"
+            end
 
             return kind
         end,
