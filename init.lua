@@ -7,7 +7,7 @@ require("plugins/keymappings")
 require("plugins")
 
 
---Set colorscheme
+--Set colorscheme -- currently: catpuccin.... see catpuccin lua file
 vim.opt.background = "dark"
 -- vim.cmd.colorscheme "catppuccin"
 -- vim.cmd([[colorscheme rose-pine]])
@@ -44,6 +44,8 @@ vim.o.completeopt = 'menuone,noselect'
 -- Only one status line at the bottom
 vim.opt.laststatus = 3
 
+-- Tabline always
+vim.o.showtabline = 2
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

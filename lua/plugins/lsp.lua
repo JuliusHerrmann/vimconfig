@@ -1,6 +1,6 @@
 -- Enable the following language servers
 local servers = {'pyright', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman', 'asm_lsp', 'cmake', 'eslint', 'taplo'}
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -18,6 +18,9 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
   vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.formatting, {})
+  if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
+  end
 end
 
 -- Diagnostic keymaps
@@ -30,7 +33,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 local lspconfig = require 'lspconfig'
 
 -- gutter icons
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = "󰋽 " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })

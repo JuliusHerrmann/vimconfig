@@ -34,6 +34,7 @@ require("catppuccin").setup({
             CmpItemMenu = { fg= colors.blue, style = { "italic" }},
             ["@constant.builtin"] = { fg = colors.peach, style = {} },
             ["@comment"] = { fg = colors.surface2, style = { "italic" } },
+            Pmenu = { fg = "None", bg = "#313244" },
         }
     end,
     integrations = {

@@ -16,13 +16,14 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path' -- path source for cmp
   use 'hrsh7th/cmp-buffer' -- path source for cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use 'saadparwaiz1/cmp_luasnip'
+  use 'saadparwaiz1/cmp_luasnip' -- cmp source for snippets
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- telescope
   -- use 'hrsh7th/vim-vsnip'
   -- use 'hrsh7th/vim-vsnip-integ'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- fzf syntax for telescope
   use 'nvim-treesitter/nvim-treesitter' -- treesitter for highlighting
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'nvim-treesitter/nvim-treesitter-context' -- function context
   use {'kyazdani42/nvim-web-devicons'}
   use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
   use 'arkav/lualine-lsp-progress' -- lsp integration with lualine
@@ -36,13 +37,13 @@ require('packer').startup(function()
   use 'ray-x/lsp_signature.nvim' -- show signatures for functions
   use 'norcalli/nvim-colorizer.lua' -- color hexcodes
   use 'lewis6991/impatient.nvim' -- cache plugins for better startup
-  use {"SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter"} -- show position in lualine
   use 'AckslD/nvim-neoclip.lua' -- clipboard history
   -- use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}} -- tablines
   use 'nanozuki/tabby.nvim'
   use 'folke/which-key.nvim' -- show help for keymappings
   use 'lewis6991/gitsigns.nvim' -- nice git integration
-  use 'sbdchd/neoformat'
+  use {"SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig"} -- code location
+  use 'sbdchd/neoformat' -- formatter
   -- install without yarn or npm
   use({
       "iamcco/markdown-preview.nvim",
@@ -75,7 +76,7 @@ require('plugins/cmp')
 require('plugins/telescope')
 require('plugins/neoclip')
 require('plugins/treesitter')
-require('plugins/gps')
+require('plugins/treesitter-context')
 require('plugins/lualine')
 require('plugins/commenter')
 require('plugins/hop')
@@ -86,4 +87,5 @@ require('plugins/tabby')
 -- require('plugins/rose-pine')
 require('plugins/catppuccin')
 require('plugins/gitsigns')
+require('plugins/navic')
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').find_files)
