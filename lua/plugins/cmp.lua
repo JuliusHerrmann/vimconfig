@@ -88,26 +88,30 @@ cmp.setup ({
             Luasnip.lsp_expand(args.body)
         end,
     },
+    completion = {
+        completeopt = 'menu,menuone'
+    },
+    preselect = cmp.PreselectMode.Item,
     mapping = cmp.mapping.preset.insert({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         -- this always chooses first entry
-        -- ['<CR>'] = cmp.mapping.confirm {
-        --   behavior = cmp.ConfirmBehavior.Replace,
-        --   select = true,
-        -- },
-        ["<CR>"] = cmp.mapping({
-            i = function(fallback)
-                if cmp.visible() and cmp.get_active_entry() then
-                    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-                else
-                    fallback()
-                end
-            end,
-            s = cmp.mapping.confirm({ select = true }),
-            c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-        }),
+        ['<CR>'] = cmp.mapping.confirm {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        },
+        -- ["<CR>"] = cmp.mapping({
+        --     i = function(fallback)
+        --         if cmp.visible() and cmp.get_active_entry() then
+        --             cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+        --         else
+        --             fallback()
+        --         end
+        --     end,
+        --     s = cmp.mapping.confirm({ select = true }),
+        --     c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+        -- }),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()

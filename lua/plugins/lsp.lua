@@ -1,9 +1,10 @@
 -- Enable the following language servers
-local servers = {'pyright', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman', 'asm_lsp', 'cmake', 'eslint', 'taplo'}
+local servers = {'pyright', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman', 'asm_lsp', 'cmake', 'eslint', 'taplo', 'julials', 'emmet_ls', 'tsserver'}
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', 'gd', '<cmd>Trouble lsp_definitions<cr>', {silent = true, noremap = true})
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
@@ -14,9 +15,11 @@ local on_attach = function(client, bufnr)
   end, opts)
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  vim.keymap.set('n', 'gr', '<cmd>Trouble lsp_references<cr>', {silent = true, noremap = true})
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
+  vim.keymap.set('n', 'gt', '<cmd>Trouble document_diagnostics<cr>', {silent = true, noremap = true})
   vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.formatting, {})
   if client.server_capabilities.documentSymbolProvider then
       navic.attach(client, bufnr)
@@ -108,8 +111,7 @@ lspconfig.texlab.setup{
                 onSave = true
             }
         }
-
-        }
+    }
 }
 -- show error in floating window
 -- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
