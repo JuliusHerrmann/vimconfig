@@ -23,10 +23,10 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter', -- treesitter for highlighting
     'nvim-treesitter/nvim-treesitter-textobjects',
     'nvim-treesitter/nvim-treesitter-context', -- function context
-    'kyazdani42/nvim-web-devicons',
-    {'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }},
+    'nvim-tree/nvim-web-devicons',
+    {'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }},
     'arkav/lualine-lsp-progress', -- lsp integration with lualine
-    {'kyazdani42/nvim-tree.lua', dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }},
+    {'nvim-tree/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }},
     'jiangmiao/auto-pairs', -- automatically close pairs
     'tpope/vim-surround', -- better handle surrounds
     'numToStr/Comment.nvim', -- auto comments
