@@ -58,8 +58,8 @@ vim.o.completeopt = 'menuone,noselect'
 -- Only one status line at the bottom
 vim.opt.laststatus = 3
 
--- Tabline always
-vim.o.showtabline = 2
+-- Tabline always = 2, only when multiple tabs = 1
+vim.o.showtabline = 1
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

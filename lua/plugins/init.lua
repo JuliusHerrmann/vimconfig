@@ -23,20 +23,22 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter', -- treesitter for highlighting
     'nvim-treesitter/nvim-treesitter-textobjects',
     'nvim-treesitter/nvim-treesitter-context', -- function context
+    'RRethy/nvim-treesitter-textsubjects', -- treesitter . and ; textobjects
     'nvim-tree/nvim-web-devicons',
-    {'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }},
+    {'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }},
     'arkav/lualine-lsp-progress', -- lsp integration with lualine
-    {'nvim-tree/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }},
-    'jiangmiao/auto-pairs', -- automatically close pairs
+    {'nvim-tree/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }},
     'tpope/vim-surround', -- better handle surrounds
+    {'windwp/nvim-autopairs', event = 'InsertEnter'}, -- auto pairs
     'numToStr/Comment.nvim', -- auto comments
     'ludovicchabant/vim-gutentags', -- Automatic tags management
     'KabbAmine/zeavim.vim', -- zeal integration
     'phaazon/hop.nvim', -- easy jumping
-    'ray-x/lsp_signature.nvim', -- show signatures for functions
+    -- 'ray-x/lsp_signature.nvim', -- show signatures for functions
     'norcalli/nvim-colorizer.lua', -- color hexcodes
     'AckslD/nvim-neoclip.lua', -- clipboard history
-    'nanozuki/tabby.nvim',
+    -- 'nanozuki/tabby.nvim', -- tabline
+    -- { 'alvarosevilla95/luatab.nvim', dependencies='kyazdani42/nvim-web-devicons' }, -- tabline
     'folke/which-key.nvim', -- show help for keymappings
     'lewis6991/gitsigns.nvim', -- nice git integration
     {'SmiteshP/nvim-navic', dependencies = 'neovim/nvim-lspconfig'}, -- code location
@@ -48,9 +50,11 @@ require("lazy").setup({
     -- better references / definitions and problems
     {'folke/trouble.nvim', dependencies = 'nvim-tree/nvim-web-devicons'},
     -- Rainbow brackets
-    {'HiPhish/nvim-ts-rainbow2', dependencies = 'nvim-treesitter/nvim-treesitter'},
+    -- {'HiPhish/nvim-ts-rainbow2', dependencies = 'nvim-treesitter/nvim-treesitter'},
     -- function tree
    'stevearc/aerial.nvim',
+   'github/copilot.vim', --Copilot
+   'vidocqh/auto-indent.nvim', -- autoindent
 })
 
 -- comment out to disable
@@ -67,14 +71,17 @@ require('plugins/treesitter-context')
 require('plugins/lualine')
 require('plugins/commenter')
 require('plugins/hop')
-require('plugins/lsp_signature')
+-- require('plugins/lsp_signature')
 require('plugins/colorizer')
 -- require('plugins/barbar')
-require('plugins/tabby')
+-- require('plugins/tabby')
+-- require('plugins/luatab')
 -- require('plugins/rose-pine')
 require('plugins/catppuccin')
 require('plugins/gitsigns')
 require('plugins/navic')
 require('plugins/trouble')
-require('plugins/rainbow')
+-- require('plugins/rainbow')
 require('plugins/aerial')
+require('plugins/autoindent')
+require('plugins/nvim-autopairs')
