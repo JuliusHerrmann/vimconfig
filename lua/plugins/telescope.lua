@@ -4,18 +4,16 @@ require('telescope').setup {
   defaults = {
     mappings = {
       i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
         ["<esc>"] = actions.close
       },
     },
     border = {},
-    prompt_prefix = " 🔭 ",
+    prompt_prefix = " 🪐 ",
     selection_caret = "  ",
     entry_prefix = "  ",
-    -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-    borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-    winblend = 10,
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    -- borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+    winblend = 0,
   },
   extensions_list = { "themes", "terms" },
 }
