@@ -42,10 +42,17 @@ require("lazy").setup({
     'folke/which-key.nvim', -- show help for keymappings
     'lewis6991/gitsigns.nvim', -- nice git integration
     {'SmiteshP/nvim-navic', dependencies = 'neovim/nvim-lspconfig'}, -- code location
-    'sbdchd/neoformat', -- formatter
+    {'sbdchd/neoformat',
+        init = function ()
+            vim.g.latexindent_opt="-m"
+        end
+    }, -- formatter
     -- Markdown previews
-    {'iamcco/markdown-preview.nvim',
-        build = function() vim.fn["mkdp#util#install"]() end,
+    {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
     },
     -- better references / definitions and problems
     {'folke/trouble.nvim', dependencies = 'nvim-tree/nvim-web-devicons'},
@@ -55,6 +62,12 @@ require("lazy").setup({
    'stevearc/aerial.nvim',
    'github/copilot.vim', --Copilot
    'vidocqh/auto-indent.nvim', -- autoindent
+   -- 'https://codeberg.org/esensar/nvim-dev-container', -- devcontainers
+   {'lervag/vimtex',
+        init = function ()
+            require('plugins/vimtex')
+        end
+   }
 })
 
 -- comment out to disable
@@ -85,3 +98,4 @@ require('plugins/trouble')
 require('plugins/aerial')
 require('plugins/autoindent')
 require('plugins/nvim-autopairs')
+-- require('plugins/devcontainers')
