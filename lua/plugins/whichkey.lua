@@ -1,35 +1,26 @@
--- vim whichkey PLEASE UPDATE ACCORDING TO NEW MAPPINGS
+-- -- vim whichkey PLEASE UPDATE ACCORDING TO NEW MAPPINGS
 local wk = require'which-key'
-wk.register({
-  e = "show diagnostic",
-  c ={
-    name = "copy options",
-    o = "show copy history",
-    ["<space>"] = "show copy history",
-    a = "lsp code actions"
-  },
-  ["?"] = "telescope oldfiles",
-  ["<space>"] = "telescope files",
-  b = "telescope buffers",
-  D = "lsp type definitions",
-  q = "diagnostic loclist",
-  rn = "lsp rename",
-  s = {
-    name = "telescope actions",
-    o = "document symbols",
-    b = "buffer fuzzy search",
-    p = "live grep in project",
-  },
-  w = {
-    name = "lsp workspace",
-    a = "add workspace folder",
-    l = "list workspace folders",
-    r = "remove workspace folder",
-  },
-  a = "Buffer Pick"
-}, {prefix = "<leader>"})
-wk.setup({
-  window = {
-    border = "none"
-  }
-})
+wk.add(
+    {
+        { "<leader><space>", desc = "telescope files" },
+        { "<leader>?", desc = "telescope oldfiles" },
+        { "<leader>D", desc = "lsp type definitions" },
+        { "<leader>a", desc = "Buffer Pick" },
+        { "<leader>b", desc = "telescope buffers" },
+        { "<leader>c", group = "copy options" },
+        { "<leader>c<space>", desc = "show copy history" },
+        { "<leader>ca", desc = "lsp code actions" },
+        { "<leader>co", desc = "show copy history" },
+        { "<leader>e", desc = "show diagnostic" },
+        { "<leader>q", desc = "diagnostic loclist" },
+        { "<leader>rn", desc = "lsp rename" },
+        { "<leader>s", group = "telescope actions" },
+        { "<leader>sb", desc = "buffer fuzzy search" },
+        { "<leader>so", desc = "document symbols" },
+        { "<leader>sp", desc = "live grep in project" },
+        { "<leader>w", group = "lsp workspace" },
+        { "<leader>wa", desc = "add workspace folder" },
+        { "<leader>wl", desc = "list workspace folders" },
+        { "<leader>wr", desc = "remove workspace folder" },
+    }
+)

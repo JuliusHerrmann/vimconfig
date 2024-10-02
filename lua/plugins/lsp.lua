@@ -1,6 +1,6 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
--- local servers = {'pyright', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman', 'asm_lsp', 'cmake', 'eslint', 'taplo', 'julials', 'emmet_ls', 'tsserver'}
+-- local servers = {'pyright', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman', 'asm_lsp', 'cmake', 'eslint', 'taplo', 'julials', 'emmet_ls'}
 lspconfig.pyright.setup {}
 lspconfig.jdtls.setup {}
 lspconfig.clangd.setup {}
@@ -10,7 +10,6 @@ lspconfig.eslint.setup {}
 lspconfig.taplo.setup {}
 lspconfig.julials.setup {}
 lspconfig.emmet_ls.setup {}
-lspconfig.tsserver.setup {}
 lspconfig.texlab.setup {
     settings = {
         texlab = {
