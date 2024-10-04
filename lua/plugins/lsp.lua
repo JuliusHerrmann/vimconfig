@@ -1,50 +1,41 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 -- local servers = {'pyright', 'texlab', 'jdtls', 'clangd', 'rust_analyzer', 'marksman', 'asm_lsp', 'cmake', 'eslint', 'taplo', 'julials', 'emmet_ls'}
-lspconfig.pyright.setup {}
-lspconfig.jdtls.setup {}
-lspconfig.clangd.setup {}
-lspconfig.marksman.setup {}
-lspconfig.cmake.setup {}
-lspconfig.eslint.setup {}
-lspconfig.taplo.setup {}
-lspconfig.julials.setup {}
-lspconfig.emmet_ls.setup {}
-lspconfig.texlab.setup {
-    settings = {
-        texlab = {
-            rootDirectory = ".",
-            build = {
-                onSave = true
-            },
-            forwardSearch = {
-                args = {
-                    "--synctex-forward",
-                    "%l:1:%f",
-                    "%p"
-                },
-                executable = "zathura",
-                onSave = true
-            }
-        }
-    }
-}
-lspconfig.lua_ls.setup {
-  settings = {
-    Lua = {
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
-lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ['rust-analyzer'] = {},
-  },
-}
+-- lspconfig.texlab.setup {
+--     settings = {
+--         texlab = {
+--             rootDirectory = ".",
+--             build = {
+--                 onSave = true
+--             },
+--             forwardSearch = {
+--                 args = {
+--                     "--synctex-forward",
+--                     "%l:1:%f",
+--                     "%p"
+--                 },
+--                 executable = "zathura",
+--                 onSave = true
+--             }
+--         }
+--     }
+-- }
+-- lspconfig.lua_ls.setup {
+--   settings = {
+--     Lua = {
+--       -- Do not send telemetry data containing a randomized but unique identifier
+--       telemetry = {
+--         enable = false,
+--       },
+--     },
+--   },
+-- }
+-- lspconfig.rust_analyzer.setup {
+--   -- Server-specific settings. See `:help lspconfig-setup`
+--   settings = {
+--     ['rust-analyzer'] = {},
+--   },
+-- }
 
 
 -- Global mappings.
@@ -79,9 +70,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<space>f', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
+    -- vim.keymap.set('n', '<space>f', function()
+    --   vim.lsp.buf.format { async = true }
+    -- end, opts)
   end,
 })
 
