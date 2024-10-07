@@ -1,24 +1,130 @@
---Set lualine
-
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    -- theme = 'gruvbox',
-    -- theme = 'rose-pine',
-    -- theme = 'catppuccin',
-    theme = 'onedark',
-    component_separators = '|',
-    section_separators = { left = "", right = ""},
-  },
-  sections = {
-    lualine_c = {
-        'filename',
-        'navic',
-        'lsp_progress'
-    }
-  },
-  tabline = {
-      lualine_a = {'buffers'},
-      lualine_z = {'tabs'}
-  }
+return {
+	"nvim-lualine/lualine.nvim",
+	lazy = false,
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+		"arkav/lualine-lsp-progress",
+		{
+			"SmiteshP/nvim-navic",
+			dependencies = "neovim/nvim-lspconfig",
+			opts = {
+				lsp = {
+					auto_attach = true,
+				},
+				highlight = true,
+				separator = " > ",
+				depth_limit = 0,
+				depth_limit_indicator = "..",
+				icons = {
+					File = "󰈙 ",
+					Module = " ",
+					Namespace = " ",
+					Package = " ",
+					Class = "󰠱 ",
+					Method = " ",
+					Property = "󰜢 ",
+					Field = "󰜢 ",
+					Constructor = " ",
+					Enum = " ",
+					Interface = " ",
+					Function = "󰊕 ",
+					Variable = "󰀫 ",
+					Constant = "󰏿 ",
+					String = "󰉿 ",
+					Number = " ",
+					Boolean = " ",
+					Array = " ",
+					Object = "󰙅 ",
+					Key = "󰌋 ",
+					Null = "󰟢 ",
+					EnumMember = " ",
+					Struct = "󰙅 ",
+					Event = " ",
+					Operator = "󰆕 ",
+					TypeParameter = " ",
+				},
+				-- Old mappings
+				-- icons = {
+				--     File          = " ",
+				--     Module        = " ",
+				--     Namespace     = " ",
+				--     Package       = " ",
+				--     Class         = " ",
+				--     Method        = " ",
+				--     Property      = " ",
+				--     Field         = " ",
+				--     Constructor   = " ",
+				--     Enum          = " ",
+				--     Interface     = " ",
+				--     Function      = "󰊕 ",
+				--     Variable      = "󰀫 ",
+				--     Constant      = "󰏿 ",
+				--     String        = " ",
+				--     Number        = " ",
+				--     Boolean       = " ",
+				--     Array         = " ",
+				--     Object        = " ",
+				--     Key           = " ",
+				--     Null          = "󰟢 ",
+				--     EnumMember    = " ",
+				--     Struct        = " ",
+				--     Event         = " ",
+				--     Operator      = " ",
+				--     TypeParameter = " ",
+				-- },
+				-- Below is lsp-kind mappings
+				-- symbol_map = {
+				--   Text = "󰉿",
+				--   Method = "󰆧",
+				--   Function = "󰊕",
+				--   Constructor = "",
+				--   Field = "󰜢",
+				--   Variable = "󰀫",
+				--   Class = "󰠱",
+				--   Interface = "",
+				--   Module = "",
+				--   Property = "󰜢",
+				--   Unit = "󰑭",
+				--   Value = "󰎠",
+				--   Enum = "",
+				--   Keyword = "󰌋",
+				--   Snippet = "",
+				--   Color = "󰏘",
+				--   File = "󰈙",
+				--   Reference = "󰈇",
+				--   Folder = "󰉋",
+				--   EnumMember = "",
+				--   Constant = "󰏿",
+				--   Struct = "󰙅",
+				--   Event = "",
+				--   Operator = "󰆕",
+				--   TypeParameter = "",
+				-- },
+			},
+		},
+	},
+	config = function()
+		require("lualine").setup({
+			options = {
+				icons_enabled = true,
+				-- theme = 'gruvbox',
+				-- theme = 'rose-pine',
+				-- theme = 'catppuccin',
+				theme = "onedark",
+				component_separators = "|",
+				section_separators = { left = "", right = "" },
+			},
+			sections = {
+				lualine_c = {
+					"filename",
+					"navic",
+					"lsp_progress",
+				},
+			},
+			tabline = {
+				lualine_a = { "buffers" },
+				lualine_z = { "tabs" },
+			},
+		})
+	end,
 }

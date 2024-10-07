@@ -1,1 +1,5 @@
-require("aerial").setup()
+return {
+	"stevearc/aerial.nvim",
+	cmd = { "AerialToggle", "AerialOpen" },
+	opts = {},
+}

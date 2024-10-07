@@ -1,5 +1,9 @@
-require('gitsigns').setup({
-  preview_config = {
-    border = 'single'
-  }
-})
+return {
+	"lewis6991/gitsigns.nvim",
+	event = "BufRead",
+	opts = {
+		preview_config = {
+			border = "single",
+		},
+	},
+}
