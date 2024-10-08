@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-    dependencies = { "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" }, -- make sure to load this after mason-lspconfig
+	dependencies = { "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" }, -- make sure to load this after mason-lspconfig
 	lazy = false,
 	priority = 50,
 	config = function()
@@ -51,11 +51,17 @@ return {
 
 		vim.diagnostic.config({
 			virtual_text = true,
-			signs = true,
 			underline = true,
 			update_in_insert = true,
 			severity_sort = false,
 		})
+
+		vim.lsp.inlay_hint = {
+		    enabled = true,
+		}
+		vim.lsp.codelens = {
+		    enabled = true,
+		}
 		-- nvim-cmp supports additional completion capabilities
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)

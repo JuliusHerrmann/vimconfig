@@ -18,6 +18,7 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-nvim-lsp-signature-help",
 		{
 			"windwp/nvim-autopairs",
 			opts = { disable_filetype = { "TelescopePrompt", "vim" } },
@@ -156,6 +157,7 @@ return {
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = "buffer" },
+                 { name = 'nvim_lsp_signature_help' },
 			},
 		})
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
