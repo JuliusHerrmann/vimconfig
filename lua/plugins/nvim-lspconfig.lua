@@ -56,9 +56,9 @@ return {
 			severity_sort = false,
 		})
 
-		vim.lsp.inlay_hint = {
-		    enabled = true,
-		}
+		-- vim.lsp.inlay_hint = {
+		--     enabled = true,
+		-- }
 		vim.lsp.codelens = {
 		    enabled = true,
 		}
