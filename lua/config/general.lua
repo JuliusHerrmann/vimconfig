@@ -58,3 +58,5 @@ vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
+vim.opt.foldcolumn = '0'
+vim.opt.foldenable = true
