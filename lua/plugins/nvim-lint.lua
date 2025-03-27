@@ -1,6 +1,7 @@
 return {
 	"mfussenegger/nvim-lint",
     event = {"BufWritePre", "InsertLeave"},
+    enabled = false,
     config = function()
         require('lint').linters_by_ft = {
             markdown = {'vale'},
