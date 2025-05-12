@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	dependencies = { "mason-org/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" }, -- make sure to load this after mason-lspconfig
+	dependencies = { "mason-org/mason-lspconfig.nvim"}, -- make sure to load this after mason-lspconfig
 	lazy = false,
 	priority = 50,
 	config = function()
@@ -64,6 +64,6 @@ return {
 		}
 		-- nvim-cmp supports additional completion capabilities
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+		-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 	end,
 }
