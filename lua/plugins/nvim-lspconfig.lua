@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	dependencies = { "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" }, -- make sure to load this after mason-lspconfig
+	dependencies = { "mason-org/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp" }, -- make sure to load this after mason-lspconfig
 	lazy = false,
 	priority = 50,
 	config = function()
