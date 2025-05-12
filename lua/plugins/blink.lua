@@ -134,7 +134,12 @@ return {
 		-- See the fuzzy documentation for more information
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 		-- Experimental signature help support
-		signature = { enabled = true },
+		signature = {
+			enabled = true,
+			window = {
+				border = "rounded",
+			},
+		},
 		-- Use a preset for snippets, check the snippets documentation for more information
 		--snippets = { preset = 'luasnip' },
 	},
