@@ -10,5 +10,8 @@ return {
 		renderer = {
 			full_name = true,
 		},
+        filters = {
+            dotfiles = true,
+        }
 	},
 }
