@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	dependencies = { "mason-org/mason-lspconfig.nvim"}, -- make sure to load this after mason-lspconfig
+	dependencies = { "mason-org/mason-lspconfig.nvim" }, -- make sure to load this after mason-lspconfig
 	lazy = false,
 	priority = 50,
 	config = function()
@@ -21,10 +21,12 @@ return {
 
 				-- Buffer local mappings.
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
-				local opts = { buffer = ev.buf}
+				local opts = { buffer = ev.buf }
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+				vim.keymap.set("n", "K", function()
+					vim.lsp.buf.hover({ border = "rounded", max_height = 25, max_width = 120 })
+				end, opts)
 				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 				vim.keymap.set("n", "<C-s>", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
@@ -42,25 +44,32 @@ return {
 			end,
 		})
 
-		-- gutter icons
-		local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = "󰋽 " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-		end
-
 		vim.diagnostic.config({
 			virtual_text = true,
 			underline = true,
 			update_in_insert = true,
 			severity_sort = false,
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = " ",
+					[vim.diagnostic.severity.WARN] = " ",
+					[vim.diagnostic.severity.HINT] = "󰌶 ",
+					[vim.diagnostic.severity.INFO] = "󰋽 ",
+				},
+				-- numhl = {
+				--     [vim.diagnostic.severity.ERROR] = "",
+				--     [vim.diagnostic.severity.WARN] = "",
+				--     [vim.diagnostic.severity.HINT] = "",
+				--     [vim.diagnostic.severity.INFO] = ""
+				-- }
+			},
 		})
 
-		-- vim.lsp.inlay_hint = {
-		--     enabled = true,
-		-- }
+		vim.lsp.inlay_hint = {
+			enabled = true,
+		}
 		vim.lsp.codelens = {
-		    enabled = true,
+			enabled = true,
 		}
 		-- nvim-cmp supports additional completion capabilities
 		local capabilities = vim.lsp.protocol.make_client_capabilities()

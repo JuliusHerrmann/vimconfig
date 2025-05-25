@@ -3,9 +3,13 @@ return {
 	lazy = false,
 	priority = 1000, -- make sure to load this before all the other start plugins
 	config = function()
+		vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#21252b" })
+		vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#21252b" })
+		-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#21252b" })
+
 		require("onedarkpro").setup({
 			options = {
-                style = "dark",
+				style = "dark",
 				transparency = true,
 			},
 		})
