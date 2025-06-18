@@ -4,6 +4,10 @@ return {
 	lazy = false,
 	priority = 50,
 	config = function()
+        -- UNCOMMENT IN AN EMERGENCY
+        vim.lsp.set_log_level("off")
+        -- vim.lsp.set_log_level("debug")
+
 		-- Global mappings.
 		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
 		vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
