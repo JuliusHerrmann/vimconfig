@@ -87,7 +87,9 @@ return {
 		},
 
 		enabled = function()
-			return vim.bo.buftype ~= "prompt" or is_dap_buffer()
+			return not vim.list_contains({ "DressingInput" }, vim.bo.filetype)
+				and (vim.bo.buftype ~= "prompt" or is_dap_buffer())
+				and vim.b.completion ~= false
 		end,
 
 		-- (Default) Only show the documentation popup when manually triggered
@@ -101,7 +103,7 @@ return {
 				},
 			},
 			menu = {
-				-- border = "single",
+				border = "none",
 				draw = {
 					-- columns = {
 					-- 	{ "kind_icon", "label", "label_description", gap = 1 },

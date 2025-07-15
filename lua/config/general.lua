@@ -11,7 +11,7 @@ vim.opt.background = "dark"
 
 -- default vim settings
 vim.wo.number = true
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 vim.o.breakindent = true
 vim.opt.undofile = true
 vim.opt.tabstop = 4
@@ -23,6 +23,7 @@ vim.wo.relativenumber = true
 vim.opt.smartindent = true
 vim.opt.hidden = true
 vim.opt.showmode = false
+-- vim.opt.winborder = 'rounded' -- rounded borders for all popup windows
 
 --Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
@@ -30,10 +31,10 @@ vim.o.smartcase = true
 
 --Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- Only one status line at the bottom
 vim.opt.laststatus = 3
@@ -42,21 +43,23 @@ vim.opt.laststatus = 3
 vim.o.showtabline = 1
 
 -- Highlight on yank
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
 
 -- Code folding
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
-vim.opt.foldcolumn = '0'
+vim.opt.foldcolumn = "0"
 vim.opt.foldenable = true
+-- vim.o.fillchars = [[eob: ,fold:-,foldopen:,foldsep: ,foldclose:]]
+-- vim.o.foldcolumn = "1" -- adds a folding column
