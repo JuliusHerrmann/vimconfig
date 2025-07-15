@@ -23,7 +23,7 @@ vim.wo.relativenumber = true
 vim.opt.smartindent = true
 vim.opt.hidden = true
 vim.opt.showmode = false
--- vim.opt.winborder = 'rounded' -- rounded borders for all popup windows
+vim.opt.winborder = 'rounded' -- rounded borders for all popup windows
 
 --Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
