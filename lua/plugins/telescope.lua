@@ -27,7 +27,7 @@ return {
 				-- 		["<esc>"] = actions.close,
 				-- 	},
 				-- },
-				border = false,
+				border = true,
 				prompt_prefix = " 🪐 ",
 				selection_caret = "> ",
 				entry_prefix = "  ",

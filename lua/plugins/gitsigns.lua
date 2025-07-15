@@ -3,7 +3,7 @@ return {
 	event = "BufRead",
 	opts = {
 		preview_config = {
-			-- border = "single",
+			border = "single",
 		},
 	},
 }

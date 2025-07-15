@@ -99,7 +99,7 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 0,
 				window = {
-					-- border = "rounded",
+					border = "rounded",
 				},
 			},
 			menu = {
@@ -162,7 +162,7 @@ return {
 		signature = {
 			enabled = true,
 			window = {
-				-- border = "rounded",
+				border = "rounded",
 			},
 		},
 		-- Use a preset for snippets, check the snippets documentation for more information
