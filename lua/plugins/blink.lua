@@ -1,3 +1,7 @@
+local function is_dap_buffer()
+	return require("cmp_dap").is_dap_buffer()
+end
+
 return {
 	"saghen/blink.cmp",
 	event = "InsertEnter",
@@ -11,10 +15,15 @@ return {
 			"windwp/nvim-autopairs",
 			opts = { disable_filetype = { "TelescopePrompt", "vim" } },
 		},
+		{
+			"saghen/blink.compat",
+			opts = {},
+		},
+		{ "rcarriga/cmp-dap", lazy = "true" },
 	},
 
 	-- use a release tag to download pre-built binaries
-	version = '*',
+	version = "*",
 	-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
 	-- build = "cargo build --release",
 	-- If you use nix, you can build from source using latest nightly rust with:
@@ -77,6 +86,10 @@ return {
 			nerd_font_variant = "mono",
 		},
 
+		enabled = function()
+			return vim.bo.buftype ~= "prompt" or is_dap_buffer()
+		end,
+
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
 			ghost_text = { enabled = true },
@@ -124,7 +137,17 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			-- default = { "lsp", "path", "snippets", "buffer" },
+			default = function(_)
+				if is_dap_buffer() then
+					return { "lsp", "path", "buffer", "dap" }
+				else
+					return { "lsp", "path", "buffer", "snippets" }
+				end
+			end,
+			providers = {
+				dap = { name = "dap", module = "blink.compat.source" },
+			},
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

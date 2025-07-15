@@ -1,5 +1,6 @@
 return {
 	"mason-org/mason-lspconfig.nvim",
+    enabled = true,
 	dependencies = { "mason-org/mason.nvim" },
 	priority = 500, -- make sure to load this before nvim lspconfig and after mason
 	lazy = false,
