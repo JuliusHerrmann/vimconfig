@@ -5,6 +5,7 @@ return {
 	config = function()
 		vim.api.nvim_set_hl(0, "TreesitterContext", { link = "Pmenu" })
 		vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "Pmenu" })
+
 		-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#21252b" })
 
 		require("onedarkpro").setup({

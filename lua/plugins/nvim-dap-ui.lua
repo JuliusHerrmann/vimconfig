@@ -4,7 +4,7 @@ return {
     lazy = true,
 	opts = {
 		floating = {
-			border = "rounded",
+			-- border = "rounded",
 			mappings = {
 				close = { "q", "<Esc>" },
 			},

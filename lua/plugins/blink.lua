@@ -98,9 +98,9 @@ return {
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 0,
-				window = {
-					border = "rounded",
-				},
+				-- window = {
+				-- 	border = "rounded",
+				-- },
 			},
 			menu = {
 				border = "none",
@@ -161,9 +161,9 @@ return {
 		-- Experimental signature help support
 		signature = {
 			enabled = true,
-			window = {
-				border = "rounded",
-			},
+			-- window = {
+			-- 	border = "rounded",
+			-- },
 		},
 		-- Use a preset for snippets, check the snippets documentation for more information
 		--snippets = { preset = 'luasnip' },
