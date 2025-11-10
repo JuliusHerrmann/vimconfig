@@ -23,7 +23,7 @@ vim.wo.relativenumber = true
 vim.opt.smartindent = true
 vim.opt.hidden = true
 vim.opt.showmode = false
--- vim.opt.winborder = 'rounded' -- rounded borders for all popup windows
+-- vim.opt.winborder = 'bold' -- rounded borders for all popup windows
 
 --Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
@@ -60,6 +60,6 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
 vim.opt.foldcolumn = "0"
-vim.opt.foldenable = true
+vim.opt.foldenable = false
 -- vim.o.fillchars = [[eob: ,fold:-,foldopen:,foldsep: ,foldclose:]]
 -- vim.o.foldcolumn = "1" -- adds a folding column

@@ -12,6 +12,9 @@ return {
 				style = "dark",
 				transparency = true,
 			},
+            -- highlights = {
+            --     Comment = {italic = false}
+            -- }
 		})
 		vim.cmd([[colorscheme onedark]])
 	end,

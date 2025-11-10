@@ -90,8 +90,8 @@ return {
 	},
 	config = function()
 		local dap = require("dap")
-        -- colors
-        local sign = vim.fn.sign_define
+		-- colors
+		local sign = vim.fn.sign_define
 		sign("DapStopped", {
 			text = "➤", -- or '▶️' or '➤' or any icon you prefer
 			texthl = "DiagnosticWarn",
@@ -112,7 +112,25 @@ return {
 				name = "test",
 				metals = {
 					mainClass = "kugelblitz.Kugelblitz",
-					args = { "canes.lua", "results/", "AddPort", "AddPort7x4mul" },
+					args = { "canes.lua", "results/", "AddPort", "AddPort1x1mul" },
+				},
+			},
+			{
+				type = "scala",
+				request = "launch",
+				name = "TestAluPP",
+				metals = {
+					mainClass = "kugelblitz.Kugelblitz",
+					args = { "canes.lua", "results/", "TestAluPP", "TestAluPP3x3mul" },
+				},
+			},
+			{
+				type = "scala",
+				request = "launch",
+				name = "fixed addport",
+				metals = {
+					mainClass = "kugelblitz.Kugelblitz",
+					args = { "fixed.lua", "results/", "AddPort.fixed.v"},
 				},
 			},
 			-- {
@@ -139,6 +157,44 @@ return {
 			-- 	port = 5005,
 			-- 	buildTarget = "root",
 			-- },
+		}
+
+		dap.adapters.codelldb = {
+			type = "server",
+			port = "${port}",
+			executable = {
+				command = "codelldb",
+				args = { "--port", "${port}" },
+			},
+		}
+		dap.configurations.cpp = {
+			{
+				type = "codelldb",
+				request = "launch",
+				name = "julius error model test 1",
+				program = "${workspaceFolder}/../../build/contrib/nr/examples/ns3.45-julius-error-model-default",
+				args = {
+					"--errorModelType=ns3::NrEesmIrT1", "--ueY=100", "--mcs=15",
+				},
+			},
+			{
+				type = "codelldb",
+				request = "launch",
+				name = "(gdb) Launch cttc-nr-demo-default",
+				program = "${workspaceFolder}/../../build/contrib/nr/examples/ns3.45-cttc-nr-demo-default",
+				-- args = {
+				--                 "--errorModelType", "ns3::NrEesmIrT1"
+				--             },
+			},
+			{
+				type = "codelldb",
+				request = "launch",
+				name = "(gdb) Launch cttc-error-model",
+				program = "${workspaceFolder}/../../build/contrib/nr/examples/ns3.45-cttc-error-model-default",
+				args = {
+					"--errorModelType=ns3::NrEesmIrT1", "--ueY=80", "--mcs=10",
+				},
+			},
 		}
 	end,
 }
