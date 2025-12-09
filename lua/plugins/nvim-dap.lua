@@ -109,10 +109,19 @@ return {
 			{
 				type = "scala",
 				request = "launch",
-				name = "test",
+				name = "AddPort",
 				metals = {
 					mainClass = "kugelblitz.Kugelblitz",
-					args = { "canes.lua", "results/", "AddPort", "AddPort1x1mul" },
+					args = { "canes.lua", "results/", "AddPort", "AddPort3x3mul" },
+				},
+			},
+			{
+				type = "scala",
+				request = "launch",
+				name = "TestConfig",
+				metals = {
+					mainClass = "kugelblitz.Kugelblitz",
+					args = { "canes.lua", "results/", "TestConfig", "TestConfig1x1mul" },
 				},
 			},
 			{
@@ -132,7 +141,7 @@ return {
 					mainClass = "kugelblitz.Kugelblitz",
 					args = { "fixed.lua", "results/", "AddPort.fixed.v"},
 				},
-			},
+			}
 			-- {
 			-- 	type = "scala",
 			-- 	request = "launch",
@@ -165,7 +174,7 @@ return {
 			executable = {
 				command = "codelldb",
 				args = { "--port", "${port}" },
-			},
+			}
 		}
 		dap.configurations.cpp = {
 			{
@@ -194,7 +203,7 @@ return {
 				args = {
 					"--errorModelType=ns3::NrEesmIrT1", "--ueY=80", "--mcs=10",
 				},
-			},
+			}
 		}
 	end,
 }
