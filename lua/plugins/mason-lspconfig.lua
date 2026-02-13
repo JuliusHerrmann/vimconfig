@@ -23,6 +23,13 @@ return {
 				},
 			},
 		})
+		vim.lsp.config("matlab_ls", {
+			settings = {
+				MATLAB = {
+                    telemetry = false;
+				},
+			},
+		})
 		require("mason-lspconfig").setup({
 			automatic_enable = true,
 		})

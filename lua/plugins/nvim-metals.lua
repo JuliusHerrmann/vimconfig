@@ -8,6 +8,16 @@ return {
 	opts = function()
 		local metals_config = require("metals").bare_config()
 		metals_config.init_options.statusBarProvider = "on"
+		metals_config.settings = {
+			inlayHints = {
+				byNameParameters = { enable = true },
+				hintsInPatternMatch = { enable = true },
+				implicitArguments = { enable = true },
+				implicitConversions = { enable = true },
+				inferredTypes = { enable = true },
+				typeParameters = { enable = true },
+			},
+		}
 
 		metals_config.on_attach = function(client, bufnr)
 			-- your on_attach function

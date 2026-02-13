@@ -96,9 +96,7 @@ return {
 			},
 		})
 		--
-		-- vim.lsp.inlay_hint = {
-		-- 	enabled = true,
-		-- }
+		vim.lsp.inlay_hint.enable(true)
 		-- vim.lsp.codelens = {
 		-- 	enabled = true,
 		-- }

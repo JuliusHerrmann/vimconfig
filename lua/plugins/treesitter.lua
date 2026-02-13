@@ -24,6 +24,8 @@ return {
 	},
 	config = function()
 		local languages = {
+			"markdown",
+			"markdown_inline",
 			"c",
 			"cpp",
 			"lua",
@@ -36,6 +38,11 @@ return {
 			"python",
 			"javascript",
 			"json",
+            "scala",
+            "css",
+            "html",
+            "javascript",
+            "matlab",
 		}
 		require("nvim-treesitter").setup({
 			-- Directory to install parsers and queries to

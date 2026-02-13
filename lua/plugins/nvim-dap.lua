@@ -109,10 +109,19 @@ return {
 			{
 				type = "scala",
 				request = "launch",
+				name = "MiniNat",
+				metals = {
+					mainClass = "kugelblitz.Kugelblitz",
+					args = { "canes.lua", "results/", "z3", "MiniNat", "AllThree4x4gp" },
+				},
+			},
+			{
+				type = "scala",
+				request = "launch",
 				name = "AddPort",
 				metals = {
 					mainClass = "kugelblitz.Kugelblitz",
-					args = { "canes.lua", "results/", "AddPort", "AddPort3x3mul" },
+					args = { "canes.lua", "results/", "z3", "AddPort", "AddPort3x3mul" },
 				},
 			},
 			{
